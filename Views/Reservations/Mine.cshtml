@@ -1,0 +1,61 @@
+@model MyReservationsViewModel
+@{
+    ViewData["Title"] = "Rezervimet e mia";
+}
+
+<section class="page-header">
+    <div class="container">
+        <span class="eyebrow">Klienti</span>
+        <h1>Rezervimet e mia</h1>
+        <p>Gjej rezervimet dhe biletat me email ose numër telefoni.</p>
+    </div>
+</section>
+
+<section class="section-block">
+    <div class="container">
+        <div class="form-shell mb-4">
+            <form asp-action="Mine" method="post" class="filter-form">
+                <div>
+                    <label asp-for="Query" class="form-label"></label>
+                    <input asp-for="Query" class="form-control" placeholder="email@example.com ose +383..." />
+                    <span asp-validation-for="Query" class="text-danger"></span>
+                </div>
+                <button class="btn btn-primary align-self-end">Kërko</button>
+            </form>
+        </div>
+
+        @if (Model.HasSearched && !Model.Reservations.Any())
+        {
+            <div class="alert alert-warning">Nuk u gjet asnjë rezervim për këtë të dhënë.</div>
+        }
+
+        @if (Model.Reservations.Any())
+        {
+            <div class="table-shell">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr><th>Kodi</th><th>Udhëtimi</th><th>Data</th><th>Ulëse</th><th>Shuma</th><th>Statusi</th><th>Bileta</th></tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model.Reservations)
+                    {
+                        <tr>
+                            <td>#@item.Id</td>
+                            <td>@item.Trip?.DepartureCity - @item.Trip?.Destination</td>
+                            <td>@item.Trip?.DepartureDate.ToString("dd/MM/yyyy")</td>
+                            <td>@item.SeatCount</td>
+                            <td>@item.TotalAmount.ToString("0.00") EUR</td>
+                            <td>@item.Status</td>
+                            <td>@(item.Tickets.FirstOrDefault()?.TicketNumber ?? "-")</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

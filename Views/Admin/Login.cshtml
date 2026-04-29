@@ -1,0 +1,29 @@
+@model AdminLoginViewModel
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<section class="section-block">
+    <div class="container narrow-container">
+        <div class="form-shell">
+            <h1>Admin Login</h1>
+            <p class="text-muted">Përdor kredencialet demo për panelin administrativ.</p>
+            <form asp-action="Login" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="mb-3">
+                    <label asp-for="Username" class="form-label"></label>
+                    <input asp-for="Username" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                </div>
+                <button class="btn btn-primary">Hyr</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

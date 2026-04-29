@@ -1,0 +1,71 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero-section">
+    <div class="container hero-grid">
+        <div>
+            <span class="eyebrow">Arlian Trans</span>
+            <h1>UdhÃ«time profesionale nga Prishtina drejt KosovÃ«s, EvropÃ«s dhe botÃ«s.</h1>
+            <p class="lead-copy">PlatformÃ« moderne pÃ«r rezervime online, blerje biletash, menaxhim tÃ« ulÃ«seve dhe raportim administrativ nÃ« kohÃ« reale me SQLite lokale.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary btn-lg" asp-controller="Trips" asp-action="Index">Shiko udhÃ«timet</a>
+                <a class="btn btn-outline-light btn-lg" asp-controller="Tickets" asp-action="Create">Blej biletÃ«</a>
+            </div>
+        </div>
+        <div class="stats-panel">
+            <div><span>@Model.TotalTrips</span><small>UdhÃ«time aktive nÃ« databazÃ«</small></div>
+            <div><span>@Model.ActiveReservations</span><small>Rezervime tÃ« ruajtura</small></div>
+            <div><span>@Model.TicketsSold</span><small>Bileta tÃ« shitura</small></div>
+            <div><span>@Model.TotalRevenue.ToString("0.00") â‚¬</span><small>TÃ« hyra tÃ« regjistruara</small></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-block">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">Pse ne</span>
+            <h2>Zgjidhje e plotÃ« pÃ«r transport modern</h2>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card"><h3>Rezervime online</h3><p>KlientÃ«t rezervojnÃ« me validime tÃ« plota dhe ruajtje direkte nÃ« SQLite.</p></article>
+            <article class="feature-card"><h3>Blerje biletash</h3><p>PagesÃ« e simuluar me kartelÃ« ose rezervim CASH pÃ«r pagesÃ« nÃ« zyrÃ«.</p></article>
+            <article class="feature-card"><h3>Menaxhim ulÃ«sesh</h3><p>Bilanci i ulÃ«seve pÃ«rditÃ«sohet me transaksione qÃ« shmangin konfliktet.</p></article>
+            <article class="feature-card"><h3>Admin panel</h3><p>CRUD pÃ«r udhÃ«time, konfirmim pagesash CASH dhe raporte tÃ« hyrash.</p></article>
+        </div>
+    </div>
+</section>
+
+<section class="section-block alt-surface">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">Destinacionet</span>
+            <h2>Udhëtimet e fundit nga databaza</h2>
+        </div>
+        <div class="trip-grid">
+            @foreach (var trip in Model.FeaturedTrips)
+            {
+                <article class="trip-card">
+                    <div class="trip-card-top">
+                        <span class="badge bg-light text-dark">@trip.TransportType</span>
+                        <span class="price-chip">@trip.Price.ToString("0.00") â‚¬</span>
+                    </div>
+                    <h3>PrishtinÃ« - @trip.Destination</h3>
+                    <p>@trip.Country</p>
+                    <ul class="trip-meta">
+                        <li>Nisja: @trip.DepartureDate.ToString("dd/MM/yyyy") @trip.DepartureTime</li>
+                        <li>Kthimi: @trip.ReturnDate.ToString("dd/MM/yyyy") @trip.ReturnTime</li>
+                        <li>UlÃ«se tÃ« lira: @trip.AvailableSeats / @trip.TotalSeats</li>
+                    </ul>
+                    <div class="trip-actions">
+                        <a class="btn btn-outline-primary" asp-controller="Trips" asp-action="Details" asp-route-id="@trip.Id">Shiko detaje</a>
+                        <a class="btn btn-primary" asp-controller="Reservations" asp-action="Create">Rezervo</a>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+

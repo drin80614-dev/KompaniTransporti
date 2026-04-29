@@ -1,0 +1,34 @@
+@model Trip
+@{
+    ViewData["Title"] = "Detajet";
+}
+
+<section class="page-header">
+    <div class="container">
+        <span class="eyebrow">Detajet e udhëtimit</span>
+        <h1>@Model.DepartureCity - @Model.Destination</h1>
+        <p>@Model.Country • @Model.TransportType • @Model.Price.ToString("0.00") €</p>
+    </div>
+</section>
+
+<section class="section-block">
+    <div class="container detail-grid">
+        <div class="info-card">
+            <h3>Orari</h3>
+            <p>Nisja: @Model.DepartureDate.ToString("dd/MM/yyyy") @Model.DepartureTime</p>
+            <p>Kthimi: @Model.ReturnDate.ToString("dd/MM/yyyy") @Model.ReturnTime</p>
+            <p>Statusi: @Model.Status</p>
+            <p>@Model.Description</p>
+        </div>
+        <div class="info-card">
+            <h3>Ulëset</h3>
+            <p>Total: @Model.TotalSeats</p>
+            <p>Të lira: @Model.AvailableSeats</p>
+            <p>Të zëna: @Model.OccupiedSeats</p>
+            <div class="trip-actions mt-3">
+                <a class="btn btn-primary" asp-controller="Reservations" asp-action="Create">Rezervo</a>
+                <a class="btn btn-outline-primary" asp-controller="Tickets" asp-action="Create">Blej biletë</a>
+            </div>
+        </div>
+    </div>
+</section>

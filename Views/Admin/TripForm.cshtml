@@ -1,0 +1,38 @@
+@model Trip
+@{
+    ViewData["Title"] = "Trip Form";
+    var actionName = Model.Id == 0 ? "CreateTrip" : "EditTrip";
+}
+
+<section class="section-block">
+    <div class="container narrow-container">
+        <div class="form-shell">
+            <h1>@(Model.Id == 0 ? "Shto udhëtim" : "Ndrysho udhëtim")</h1>
+            <form asp-action="@actionName" method="post">
+                <input asp-for="Id" type="hidden" />
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="row g-3">
+                    <div class="col-md-6"><label asp-for="DepartureCity" class="form-label"></label><input asp-for="DepartureCity" class="form-control" /></div>
+                    <div class="col-md-6"><label asp-for="Destination" class="form-label"></label><input asp-for="Destination" class="form-control" /></div>
+                    <div class="col-md-6"><label asp-for="Country" class="form-label"></label><input asp-for="Country" class="form-control" /></div>
+                    <div class="col-md-6"><label asp-for="Price" class="form-label"></label><input asp-for="Price" class="form-control" /></div>
+                    <div class="col-md-6"><label asp-for="DepartureDate" class="form-label"></label><input asp-for="DepartureDate" class="form-control" /></div>
+                    <div class="col-md-6"><label asp-for="DepartureTime" class="form-label"></label><input asp-for="DepartureTime" class="form-control" /></div>
+                    <div class="col-md-6"><label asp-for="ReturnDate" class="form-label"></label><input asp-for="ReturnDate" class="form-control" /></div>
+                    <div class="col-md-6"><label asp-for="ReturnTime" class="form-label"></label><input asp-for="ReturnTime" class="form-control" /></div>
+                    <div class="col-md-4"><label asp-for="TransportType" class="form-label"></label><select asp-for="TransportType" class="form-select" asp-items="Html.GetEnumSelectList<TransportType>()"></select></div>
+                    <div class="col-md-4"><label asp-for="TotalSeats" class="form-label"></label><input asp-for="TotalSeats" class="form-control" /></div>
+                    <div class="col-md-4"><label asp-for="AvailableSeats" class="form-label"></label><input asp-for="AvailableSeats" class="form-control" /></div>
+                    <div class="col-md-4"><label asp-for="OccupiedSeats" class="form-label"></label><input asp-for="OccupiedSeats" class="form-control" /></div>
+                    <div class="col-md-4"><label asp-for="Status" class="form-label"></label><select asp-for="Status" class="form-select" asp-items="Html.GetEnumSelectList<TripStatus>()"></select></div>
+                    <div class="col-12"><label asp-for="Description" class="form-label"></label><textarea asp-for="Description" class="form-control" rows="4"></textarea></div>
+                </div>
+                <button class="btn btn-primary mt-4">Ruaj</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

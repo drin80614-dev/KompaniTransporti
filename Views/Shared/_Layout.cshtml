@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Arlian Trans</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand brand-mark" asp-controller="Home" asp-action="Index">
+                    <span class="brand-badge">AT</span>
+                    <span>
+                        <strong>Arlian Trans</strong>
+                        <small>Transport i sigurt dhe modern</small>
+                    </span>
+                </a>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Trips" asp-action="Index">Udhëtimet</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Reservations" asp-action="Create">Rezervimet</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Reservations" asp-action="Mine">Rezervimet e mia</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Tickets" asp-action="Create">Biletat</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Kontakt</a></li>
+                        <li class="nav-item"><a class="nav-link nav-pill" asp-controller="Admin" asp-action="Index">Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container py-4">
+            @if (TempData["SuccessMessage"] is string successMessage)
+            {
+                <div class="alert alert-success shadow-sm">@successMessage</div>
+            }
+            @if (TempData["ErrorMessage"] is string errorMessage)
+            {
+                <div class="alert alert-danger shadow-sm">@errorMessage</div>
+            }
+        </div>
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h5>Arlian Trans</h5>
+                <p>Rezervime, bileta dhe menaxhim i udhëtimeve nga Prishtina drejt Kosovës, Evropës dhe botës.</p>
+            </div>
+            <div>
+                <h6>Navigimi</h6>
+                <a asp-controller="Trips" asp-action="Index">Udhëtimet</a>
+                <a asp-controller="Reservations" asp-action="Create">Rezervo</a>
+                <a asp-controller="Reservations" asp-action="Mine">Rezervimet e mia</a>
+                <a asp-controller="Tickets" asp-action="Create">Blej biletë</a>
+            </div>
+            <div>
+                <h6>Kontakti</h6>
+                <p>Tel: +383 44 123 456</p>
+                <p>Email: info@arliantrans.com</p>
+                <p>Prishtinë, Kosovë</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

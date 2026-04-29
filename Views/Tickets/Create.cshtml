@@ -1,0 +1,116 @@
+@model TicketPurchaseViewModel
+@{
+    ViewData["Title"] = "Biletat";
+}
+
+<section class="page-header">
+    <div class="container">
+        <span class="eyebrow">Biletat</span>
+        <h1>Blej biletë</h1>
+        <p>Zgjidh ulëset, përfundo pagesën dhe merr konfirmimin me email.</p>
+    </div>
+</section>
+
+<section class="section-block">
+    <div class="container narrow-container">
+        <div class="form-shell">
+            <form asp-action="Create" method="post" id="ticket-form" data-seat-picker-form>
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="FirstName" class="form-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="LastName" class="form-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="PhoneNumber" class="form-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="TripId" class="form-label"></label>
+                        <select asp-for="TripId" class="form-select" data-seat-trip-select>
+                            <option value="">Zgjidh udhëtimin</option>
+                            @foreach (var trip in Model.Trips)
+                            {
+                                <option value="@trip.Id">Prishtinë - @trip.Destination | @trip.Country | @trip.DepartureDate.ToString("dd/MM/yyyy") | @trip.Price.ToString("0.00") EUR</option>
+                            }
+                        </select>
+                        <span asp-validation-for="TripId" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="SeatCount" class="form-label"></label>
+                        <input asp-for="SeatCount" class="form-control" min="1" data-seat-count />
+                        <span asp-validation-for="SeatCount" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="PaymentMethod" class="form-label"></label>
+                        <select asp-for="PaymentMethod" class="form-select" asp-items="Html.GetEnumSelectList<PaymentMethod>()" data-card-toggle="true"></select>
+                        <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <input asp-for="SelectedSeatNumbers" type="hidden" data-selected-seats value="@Model.SelectedSeatNumbers" />
+                        <label class="form-label">Zgjidh ulëset</label>
+                        <div class="seat-picker" data-selected-initial="@Model.SelectedSeatNumbers">
+                            @foreach (var group in Model.SeatsByTrip)
+                            {
+                                <div class="seat-map" data-trip-id="@group.Key">
+                                    @foreach (var seat in group.Value)
+                                    {
+                                        var isFree = seat.Status == SeatStatus.Free;
+                                        <button type="button" class="seat-button @(isFree ? "free" : "taken")" data-seat="@seat.SeatNumber" @(isFree ? "" : "disabled")>@seat.SeatNumber</button>
+                                    }
+                                </div>
+                            }
+                        </div>
+                        <div class="seat-legend">
+                            <span><i class="seat-dot free"></i> E lirë</span>
+                            <span><i class="seat-dot selected"></i> E zgjedhur</span>
+                            <span><i class="seat-dot taken"></i> E zënë</span>
+                        </div>
+                        <span asp-validation-for="SelectedSeatNumbers" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div id="card-fields" class="row g-3 mt-1">
+                    <div class="col-md-6">
+                        <label asp-for="CardHolderName" class="form-label"></label>
+                        <input asp-for="CardHolderName" class="form-control" />
+                        <span asp-validation-for="CardHolderName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="CardNumber" class="form-label"></label>
+                        <input asp-for="CardNumber" class="form-control" />
+                        <span asp-validation-for="CardNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="ExpiryDate" class="form-label"></label>
+                        <input asp-for="ExpiryDate" class="form-control" placeholder="MM/YY" />
+                        <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Cvv" class="form-label"></label>
+                        <input asp-for="Cvv" class="form-control" />
+                        <span asp-validation-for="Cvv" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary mt-4">Përfundo blerjen</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

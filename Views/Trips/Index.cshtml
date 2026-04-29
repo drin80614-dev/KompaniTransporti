@@ -1,0 +1,61 @@
+@model TripListViewModel
+@{
+    ViewData["Title"] = "Udhëtimet";
+}
+
+<section class="page-header">
+    <div class="container">
+        <span class="eyebrow">Udhëtimet</span>
+        <h1>Kërko dhe filtro linjat</h1>
+        <p>Mbi 100 udhëtime të ruajtura në SQLite nga Prishtina drejt qyteteve në Kosovë, Evropë dhe botë.</p>
+    </div>
+</section>
+
+<section class="section-block">
+    <div class="container">
+        <form method="get" class="filter-form">
+            <input class="form-control" name="search" value="@Model.Search" placeholder="Kërko destinacion..." />
+            <input class="form-control" name="country" value="@Model.Country" placeholder="Shteti..." />
+            <select class="form-select" name="transportType">
+                <option value="">Të gjitha llojet</option>
+                @foreach (TransportType item in Enum.GetValues(typeof(TransportType)))
+                {
+                    if (Model.TransportType == item)
+                    {
+                        <option value="@((int)item)" selected>@item</option>
+                    }
+                    else
+                    {
+                        <option value="@((int)item)">@item</option>
+                    }
+                }
+            </select>
+            <button class="btn btn-primary">Filtro</button>
+        </form>
+
+        <div class="trip-grid mt-4">
+            @foreach (var trip in Model.Trips)
+            {
+                <article class="trip-card">
+                    <div class="trip-card-top">
+                        <span class="badge bg-light text-dark">#@trip.Id · @trip.TransportType</span>
+                        <span class="price-chip">@trip.Price.ToString("0.00") €</span>
+                    </div>
+                    <h3>@trip.DepartureCity - @trip.Destination</h3>
+                    <p>@trip.Country</p>
+                    <ul class="trip-meta">
+                        <li>Nisja: @trip.DepartureDate.ToString("dd/MM/yyyy") @trip.DepartureTime</li>
+                        <li>Kthimi: @trip.ReturnDate.ToString("dd/MM/yyyy") @trip.ReturnTime</li>
+                        <li>Statusi: @trip.Status</li>
+                        <li>Ulëse: @trip.AvailableSeats të lira / @trip.OccupiedSeats të zëna</li>
+                    </ul>
+                    <div class="trip-actions">
+                        <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@trip.Id">Shiko detaje</a>
+                        <a class="btn btn-outline-dark" asp-controller="Reservations" asp-action="Create">Rezervo</a>
+                        <a class="btn btn-primary" asp-controller="Tickets" asp-action="Create">Blej biletë</a>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,68 @@
+@model IEnumerable<Reservation>
+@{
+    ViewData["Title"] = "Admin Reservations";
+}
+
+<section class="section-block">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <h1>Rezervimet</h1>
+            <div class="trip-actions">
+                <form asp-action="RefreshData" method="post" class="d-inline">
+                    <button class="btn btn-primary">Refresh Data</button>
+                </form>
+                <a class="btn btn-outline-primary" asp-action="EmailLogs">Email Logs</a>
+                <a class="btn btn-outline-primary" asp-action="Dashboard">Dashboard</a>
+            </div>
+        </div>
+        <div class="table-shell">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr><th>ID</th><th>Klienti</th><th>Udhetimi</th><th>Uleset</th><th>Pagesa</th><th>Statusi</th><th>Email</th><th></th></tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Customer?.FirstName @item.Customer?.LastName</td>
+                        <td>@item.Trip?.Destination</td>
+                        <td>@item.SeatCount</td>
+                        <td>@item.PaymentMethod</td>
+                        <td>@item.Status</td>
+                        <td>
+                            @if (item.EmailSent)
+                            {
+                                <span class="badge bg-success">Sent</span>
+                                <small class="d-block text-muted">@item.EmailSentAt?.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</small>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Failed</span>
+                                @if (!string.IsNullOrWhiteSpace(item.EmailErrorMessage))
+                                {
+                                    <small class="d-block text-muted">@item.EmailErrorMessage</small>
+                                }
+                            }
+                        </td>
+                        <td class="text-end">
+                            @if (item.Status == ReservationStatus.PendingOfficePayment)
+                            {
+                                <form asp-action="ConfirmCashPayment" asp-route-id="@item.Id" method="post" class="d-inline">
+                                    <button class="btn btn-sm btn-outline-success">Konfirmo CASH</button>
+                                </form>
+                            }
+                            @if (item.Status != ReservationStatus.Cancelled)
+                            {
+                                <form asp-action="CancelReservation" asp-route-id="@item.Id" method="post" class="d-inline">
+                                    <button class="btn btn-sm btn-outline-danger">Anulo</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

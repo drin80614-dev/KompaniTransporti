@@ -1,0 +1,79 @@
+@model AdminDashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+    var isManager = ViewData["IsManager"] as bool? == true;
+}
+
+<section class="page-header">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3">
+        <div>
+            <span class="eyebrow">Admin Panel</span>
+            <h1>Paneli i menaxhimit</h1>
+            <p>@ViewData["AdminName"] · @ViewData["AdminRole"]</p>
+        </div>
+        <a class="btn btn-outline-light" asp-action="Logout">Dil</a>
+    </div>
+</section>
+
+<section class="section-block">
+    <div class="container">
+        <div class="admin-stat-grid">
+            <div class="admin-stat"><span>@Model.TotalTrips</span><small>Udhëtime</small></div>
+            <div class="admin-stat"><span>@Model.TotalReservations</span><small>Rezervime</small></div>
+            <div class="admin-stat"><span>@Model.TotalTickets</span><small>Bileta</small></div>
+            <div class="admin-stat"><span>@Model.TotalRevenue.ToString("0.00") EUR</span><small>Të hyra</small></div>
+        </div>
+        <div class="trip-actions mb-4">
+            <form asp-action="RefreshData" method="post" class="d-inline">
+                <button class="btn btn-primary">Refresh Data</button>
+            </form>
+            @if (isManager)
+            {
+                <a class="btn btn-outline-primary" asp-action="Trips">Menaxho udhëtimet</a>
+                <a class="btn btn-outline-primary" asp-action="Reports">Raportet</a>
+                <a class="btn btn-outline-primary" asp-action="Users">Admin përdoruesit</a>
+            }
+            <a class="btn btn-outline-primary" asp-action="Reservations">Shiko rezervimet</a>
+            <a class="btn btn-outline-primary" asp-action="CreateReservation">Rezervim manual</a>
+            <a class="btn btn-outline-primary" asp-action="Payments">Pagesat</a>
+            <a class="btn btn-outline-primary" asp-action="Tickets">Biletat</a>
+            <a class="btn btn-outline-primary" asp-action="EmailLogs">Email Logs</a>
+            <a class="btn btn-outline-primary" asp-action="SendTestEmail">Send Test Email</a>
+        </div>
+        <div class="admin-grid">
+            <div class="table-shell">
+                <h3>Rezervimet e fundit</h3>
+                <table class="table">
+                    <thead><tr><th>ID</th><th>Klienti</th><th>Destinacioni</th><th>Statusi</th></tr></thead>
+                    <tbody>
+                    @foreach (var item in Model.LatestReservations)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Customer?.FirstName @item.Customer?.LastName</td>
+                            <td>@item.Trip?.Destination</td>
+                            <td>@item.Status</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-shell">
+                <h3>Udhëtime me pak ulëse</h3>
+                <table class="table">
+                    <thead><tr><th>Destinacioni</th><th>Të lira</th><th>Të zëna</th></tr></thead>
+                    <tbody>
+                    @foreach (var item in Model.LowSeatTrips)
+                    {
+                        <tr>
+                            <td>@item.Destination</td>
+                            <td>@item.AvailableSeats</td>
+                            <td>@item.OccupiedSeats</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

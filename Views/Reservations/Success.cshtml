@@ -1,0 +1,25 @@
+@model Reservation
+@{
+    ViewData["Title"] = "Rezervimi u ruajt";
+}
+
+<section class="section-block">
+    <div class="container narrow-container">
+        <div class="success-card">
+            <h1>Rezervimi u ruajt me sukses</h1>
+            <p>Kodi i rezervimit: <strong>#@Model.Id</strong></p>
+            <p>Klienti: @Model.Customer?.FirstName @Model.Customer?.LastName</p>
+            <p>Udhetimi: @Model.Trip?.DepartureCity - @Model.Trip?.Destination</p>
+            <p>Uleset: @Model.SeatCount</p>
+            @if (Model.Tickets.Any())
+            {
+                <p>Numri i biletes: <strong>@Model.Tickets.First().TicketNumber</strong></p>
+            }
+            <p>Statusi: @Model.Status</p>
+            <div class="trip-actions mt-4">
+                <a class="btn btn-primary" asp-controller="Trips" asp-action="Index">Kthehu te udhetimet</a>
+                <a class="btn btn-outline-primary" asp-controller="Reservations" asp-action="Mine">Rezervimet e mia</a>
+            </div>
+        </div>
+    </div>
+</section>

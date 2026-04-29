@@ -1,0 +1,32 @@
+@model IEnumerable<AdminUser>
+@{
+    ViewData["Title"] = "Admin përdoruesit";
+}
+
+<section class="section-block">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <h1>Admin përdoruesit</h1>
+            <div class="trip-actions">
+                <a class="btn btn-primary" asp-action="CreateUser">Shto përdorues</a>
+                <a class="btn btn-outline-primary" asp-action="Dashboard">Dashboard</a>
+            </div>
+        </div>
+        <div class="table-shell">
+            <table class="table table-hover align-middle">
+                <thead><tr><th>Emri</th><th>Username</th><th>Roli</th><th>Krijuar</th></tr></thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td>@item.Username</td>
+                        <td>@item.Role</td>
+                        <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

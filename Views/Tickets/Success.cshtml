@@ -1,0 +1,25 @@
+@model Reservation
+@{
+    ViewData["Title"] = "Bileta";
+}
+
+<section class="section-block">
+    <div class="container narrow-container">
+        <div class="success-card">
+            <h1>@(TempData["SuccessMessage"] ?? "Bileta u përpunua")</h1>
+            <p>Rezervimi: <strong>#@Model.Id</strong></p>
+            <p>Klienti: @Model.Customer?.FirstName @Model.Customer?.LastName</p>
+            <p>Destinacioni: @Model.Trip?.DepartureCity - @Model.Trip?.Destination</p>
+            <p>Shuma: @Model.TotalAmount.ToString("0.00") €</p>
+            <p>Statusi: @Model.Status</p>
+            @if (Model.Tickets.Any())
+            {
+                <p>Numri i biletës: <strong>@Model.Tickets.First().TicketNumber</strong></p>
+            }
+            <div class="trip-actions mt-4">
+                <a class="btn btn-primary" asp-controller="Trips" asp-action="Index">Shiko më shumë udhëtime</a>
+                <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Contact">Kontakto zyrën</a>
+            </div>
+        </div>
+    </div>
+</section>

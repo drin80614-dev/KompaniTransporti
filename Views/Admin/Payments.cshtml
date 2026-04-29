@@ -1,0 +1,31 @@
+@model IEnumerable<Payment>
+@{
+    ViewData["Title"] = "Pagesat";
+}
+
+<section class="section-block">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <h1>Pagesat</h1>
+            <a class="btn btn-outline-primary" asp-action="Dashboard">Dashboard</a>
+        </div>
+        <div class="table-shell">
+            <table class="table table-hover align-middle">
+                <thead><tr><th>Referenca</th><th>Klienti</th><th>Destinacioni</th><th>Metoda</th><th>Shuma</th><th>Statusi</th></tr></thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ReferenceCode</td>
+                        <td>@item.Reservation?.Customer?.FirstName @item.Reservation?.Customer?.LastName</td>
+                        <td>@item.Reservation?.Trip?.Destination</td>
+                        <td>@item.PaymentMethod</td>
+                        <td>@item.Amount.ToString("0.00") €</td>
+                        <td>@item.Status</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

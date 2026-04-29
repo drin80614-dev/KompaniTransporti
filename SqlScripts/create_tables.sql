@@ -1,0 +1,84 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE IF NOT EXISTS Trips (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    DepartureCity TEXT NOT NULL DEFAULT 'Prishtinë',
+    Destination TEXT NOT NULL,
+    Country TEXT NOT NULL,
+    DepartureDate TEXT NOT NULL,
+    DepartureTime TEXT NOT NULL,
+    ReturnDate TEXT NOT NULL,
+    ReturnTime TEXT NOT NULL,
+    Price REAL NOT NULL,
+    TransportType INTEGER NOT NULL,
+    TotalSeats INTEGER NOT NULL,
+    AvailableSeats INTEGER NOT NULL,
+    OccupiedSeats INTEGER NOT NULL,
+    Status INTEGER NOT NULL,
+    Description TEXT
+);
+
+CREATE TABLE IF NOT EXISTS Customers (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    FirstName TEXT NOT NULL,
+    LastName TEXT NOT NULL,
+    PhoneNumber TEXT NOT NULL,
+    Email TEXT NOT NULL,
+    CreatedAt TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Reservations (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    TripId INTEGER NOT NULL,
+    CustomerId INTEGER NOT NULL,
+    SeatCount INTEGER NOT NULL,
+    PaymentMethod INTEGER NOT NULL,
+    Status INTEGER NOT NULL,
+    TotalAmount REAL NOT NULL,
+    CreatedAt TEXT NOT NULL,
+    Notes TEXT,
+    FOREIGN KEY (TripId) REFERENCES Trips(Id) ON DELETE RESTRICT,
+    FOREIGN KEY (CustomerId) REFERENCES Customers(Id) ON DELETE RESTRICT
+);
+
+CREATE TABLE IF NOT EXISTS Tickets (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ReservationId INTEGER NOT NULL,
+    TicketNumber TEXT NOT NULL UNIQUE,
+    IssuedAt TEXT NOT NULL,
+    PassengerName TEXT NOT NULL,
+    FOREIGN KEY (ReservationId) REFERENCES Reservations(Id) ON DELETE RESTRICT
+);
+
+CREATE TABLE IF NOT EXISTS Payments (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ReservationId INTEGER NOT NULL,
+    PaymentMethod INTEGER NOT NULL,
+    Status INTEGER NOT NULL,
+    Amount REAL NOT NULL,
+    CardHolderName TEXT,
+    MaskedCardNumber TEXT,
+    ReferenceCode TEXT NOT NULL,
+    CreatedAt TEXT NOT NULL,
+    FOREIGN KEY (ReservationId) REFERENCES Reservations(Id) ON DELETE RESTRICT
+);
+
+CREATE TABLE IF NOT EXISTS Seats (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    TripId INTEGER NOT NULL,
+    SeatNumber INTEGER NOT NULL,
+    Status INTEGER NOT NULL,
+    ReservationId INTEGER,
+    TicketId INTEGER,
+    FOREIGN KEY (TripId) REFERENCES Trips(Id) ON DELETE CASCADE,
+    UNIQUE (TripId, SeatNumber)
+);
+
+CREATE TABLE IF NOT EXISTS AdminUsers (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    FullName TEXT NOT NULL,
+    Username TEXT NOT NULL UNIQUE,
+    PasswordHash TEXT NOT NULL,
+    Role INTEGER NOT NULL DEFAULT 1,
+    CreatedAt TEXT NOT NULL
+);

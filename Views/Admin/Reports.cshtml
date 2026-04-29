@@ -1,0 +1,80 @@
+@model ReportViewModel
+@{
+    ViewData["Title"] = "Raportet";
+    var maxRevenue = Model.MonthlyRevenue.Any() ? Model.MonthlyRevenue.Max(x => x.Amount) : 0;
+    var maxReservations = Model.MonthlyReservations.Any() ? Model.MonthlyReservations.Max(x => x.Count) : 0;
+}
+
+<section class="section-block">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <h1>Raportet</h1>
+            <a class="btn btn-outline-primary" asp-action="Dashboard">Dashboard</a>
+        </div>
+        <div class="admin-stat-grid mb-4">
+            <div class="admin-stat"><span>@Model.TotalReservations</span><small>Rezervime totale</small></div>
+            <div class="admin-stat"><span>@Model.TotalTicketsSold</span><small>Bileta totale</small></div>
+            <div class="admin-stat"><span>@Model.TotalRevenue.ToString("0.00") EUR</span><small>Të hyra totale</small></div>
+            <div class="admin-stat"><span>@Model.CardPayments.ToString("0.00") EUR</span><small>Pagesa me kartelë</small></div>
+            <div class="admin-stat"><span>@Model.CashPayments.ToString("0.00") EUR</span><small>Pagesa CASH</small></div>
+        </div>
+
+        <div class="admin-grid mb-4">
+            <div class="table-shell">
+                <h3>Të hyrat mujore</h3>
+                <div class="bar-chart">
+                    @foreach (var item in Model.MonthlyRevenue)
+                    {
+                        var height = maxRevenue > 0 ? (int)Math.Max(8m, item.Amount / maxRevenue * 100m) : 8;
+                        <div class="bar-item">
+                            <div class="bar-track"><span style="height:@height%"></span></div>
+                            <small>@item.Month</small>
+                            <strong>@item.Amount.ToString("0")</strong>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="table-shell">
+                <h3>Rezervimet mujore</h3>
+                <div class="bar-chart">
+                    @foreach (var item in Model.MonthlyReservations)
+                    {
+                        var height = maxReservations > 0 ? (int)Math.Max(8m, item.Count * 100m / maxReservations) : 8;
+                        <div class="bar-item">
+                            <div class="bar-track reservations"><span style="height:@height%"></span></div>
+                            <small>@item.Month</small>
+                            <strong>@item.Count</strong>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-grid">
+            <div class="table-shell">
+                <h3>Udhëtimet më të kërkuara</h3>
+                <table class="table">
+                    <thead><tr><th>Destinacioni</th><th>Rezervime</th></tr></thead>
+                    <tbody>
+                    @foreach (var item in Model.PopularTrips)
+                    {
+                        <tr><td>@item.Label</td><td>@item.Count</td></tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-shell">
+                <h3>Destinacionet më të shitura</h3>
+                <table class="table">
+                    <thead><tr><th>Shteti</th><th>Bileta</th></tr></thead>
+                    <tbody>
+                    @foreach (var item in Model.PopularDestinations)
+                    {
+                        <tr><td>@item.Label</td><td>@item.Count</td></tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

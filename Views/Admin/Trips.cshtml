@@ -1,0 +1,42 @@
+@model IEnumerable<Trip>
+@{
+    ViewData["Title"] = "Admin Trips";
+}
+
+<section class="section-block">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <h1>Menaxhimi i udhëtimeve</h1>
+            <div class="trip-actions">
+                <a class="btn btn-primary" asp-action="CreateTrip">Shto udhëtim</a>
+                <a class="btn btn-outline-primary" asp-action="Dashboard">Dashboard</a>
+            </div>
+        </div>
+        <div class="table-shell">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr><th>ID</th><th>Destinacioni</th><th>Data</th><th>Transporti</th><th>Ulëset</th><th>Statusi</th><th></th></tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.DepartureCity - @item.Destination</td>
+                        <td>@item.DepartureDate.ToString("dd/MM/yyyy")</td>
+                        <td>@item.TransportType</td>
+                        <td>@item.AvailableSeats / @item.TotalSeats</td>
+                        <td>@item.Status</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-primary" asp-action="EditTrip" asp-route-id="@item.Id">Ndrysho</a>
+                            <form asp-action="DeleteTrip" asp-route-id="@item.Id" method="post" class="d-inline">
+                                <button class="btn btn-sm btn-outline-danger" onclick="return confirm('A je i sigurt?')">Fshi</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

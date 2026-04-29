@@ -1,0 +1,71 @@
+@model ReservationCreateViewModel
+@{
+    ViewData["Title"] = "Rezervim manual";
+}
+
+<section class="section-block">
+    <div class="container narrow-container">
+        <div class="form-shell">
+            <h1>Shto rezervim manual</h1>
+            <p class="text-muted">Ky veprim ruhet menjëherë në file-in SQLite `database/arlian_trans.db`.</p>
+            <form asp-action="CreateReservation" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="FirstName" class="form-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="LastName" class="form-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="PhoneNumber" class="form-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="TripId" class="form-label"></label>
+                        <select asp-for="TripId" class="form-select">
+                            <option value="">Zgjidh udhëtimin</option>
+                            @foreach (var trip in Model.Trips)
+                            {
+                                if (Model.TripId == trip.Id)
+                                {
+                                    <option value="@trip.Id" selected>Prishtinë - @trip.Destination | @trip.Country | @trip.AvailableSeats ulëse</option>
+                                }
+                                else
+                                {
+                                    <option value="@trip.Id">Prishtinë - @trip.Destination | @trip.Country | @trip.AvailableSeats ulëse</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="TripId" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="SeatCount" class="form-label"></label>
+                        <input asp-for="SeatCount" class="form-control" />
+                        <span asp-validation-for="SeatCount" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="PaymentMethod" class="form-label"></label>
+                        <select asp-for="PaymentMethod" class="form-select" asp-items="Html.GetEnumSelectList<PaymentMethod>()"></select>
+                        <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-4">Ruaj rezervimin</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
