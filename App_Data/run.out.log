@@ -1,0 +1,1037 @@
+Using launch settings from C:\Users\ADMIN\Downloads\Databaz transporti\ArlianTrans.Web\Properties\launchSettings.json...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT name AS Value FROM pragma_table_info('AdminUsers')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT name AS Value FROM pragma_table_info('Reservations')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT name AS Value FROM pragma_table_info('Reservations')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT name AS Value FROM pragma_table_info('Reservations')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE IF NOT EXISTS EmailLogs (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    RecipientEmail TEXT NOT NULL,
+    Subject TEXT NOT NULL,
+    Body TEXT NOT NULL,
+    Status TEXT NOT NULL,
+    ErrorMessage TEXT NULL,
+    CreatedAt TEXT NOT NULL,
+    SentAt TEXT NULL,
+    ReservationId INTEGER NULL,
+    TicketId INTEGER NULL,
+    FOREIGN KEY (ReservationId) REFERENCES Reservations(Id) ON DELETE SET NULL,
+    FOREIGN KEY (TicketId) REFERENCES Tickets(Id) ON DELETE SET NULL
+)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "AdminUsers" AS "a")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Trips" AS "t")
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5211
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\ADMIN\Downloads\Databaz transporti\ArlianTrans.Web
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      ORDER BY "t"."Id" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__username_0='?' (Size = 5), @__hash_1='?' (Size = 64)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."CreatedAt", "a"."FullName", "a"."PasswordHash", "a"."Role", "a"."Username"
+      FROM "AdminUsers" AS "a"
+      WHERE "a"."Username" = @__username_0 AND "a"."PasswordHash" = @__hash_1
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Reservations" AS "r"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Tickets" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("p"."Amount"), '0.0')
+      FROM "Payments" AS "p"
+      WHERE "p"."Status" = 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "r0"."Id", "r0"."CreatedAt", "r0"."CustomerId", "r0"."EmailErrorMessage", "r0"."EmailSent", "r0"."EmailSentAt", "r0"."Notes", "r0"."PaymentMethod", "r0"."SeatCount", "r0"."Status", "r0"."TotalAmount", "r0"."TripId", "c"."Id", "c"."CreatedAt", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM (
+          SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId"
+          FROM "Reservations" AS "r"
+          ORDER BY "r"."CreatedAt" DESC
+          LIMIT @__p_0
+      ) AS "r0"
+      INNER JOIN "Customers" AS "c" ON "r0"."CustomerId" = "c"."Id"
+      INNER JOIN "Trips" AS "t" ON "r0"."TripId" = "t"."Id"
+      ORDER BY "r0"."CreatedAt" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      WHERE "t"."AvailableSeats" <= 10 AND "t"."Status" = 1
+      ORDER BY "t"."AvailableSeats"
+      LIMIT @__p_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 261), @p1='?' (DbType = DateTime), @p2='?', @p3='?' (Size = 17), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (Size = 7), @p7='?' (Size = 24), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "EmailLogs" ("Body", "CreatedAt", "ErrorMessage", "RecipientEmail", "ReservationId", "SentAt", "Status", "Subject", "TicketId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      UPDATE "EmailLogs" SET "SentAt" = @p0, "Status" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "e0"."Id", "e0"."Body", "e0"."CreatedAt", "e0"."ErrorMessage", "e0"."RecipientEmail", "e0"."ReservationId", "e0"."SentAt", "e0"."Status", "e0"."Subject", "e0"."TicketId", "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId", "c"."Id", "c"."CreatedAt", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id", "t"."IssuedAt", "t"."PassengerName", "t"."ReservationId", "t"."TicketNumber"
+      FROM (
+          SELECT "e"."Id", "e"."Body", "e"."CreatedAt", "e"."ErrorMessage", "e"."RecipientEmail", "e"."ReservationId", "e"."SentAt", "e"."Status", "e"."Subject", "e"."TicketId"
+          FROM "EmailLogs" AS "e"
+          ORDER BY "e"."CreatedAt" DESC
+          LIMIT @__p_0
+      ) AS "e0"
+      LEFT JOIN "Reservations" AS "r" ON "e0"."ReservationId" = "r"."Id"
+      LEFT JOIN "Customers" AS "c" ON "r"."CustomerId" = "c"."Id"
+      LEFT JOIN "Tickets" AS "t" ON "e0"."TicketId" = "t"."Id"
+      ORDER BY "e0"."CreatedAt" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      ORDER BY "t"."Id" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      WHERE "t"."Status" = 1 AND "t"."AvailableSeats" > 0
+      ORDER BY "t"."DepartureDate", "t"."DepartureTime"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__tripIds_0='?' (Size = 393)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."ReservationId", "s"."SeatNumber", "s"."Status", "s"."TicketId", "s"."TripId"
+      FROM "Seats" AS "s"
+      WHERE "s"."TripId" IN (
+          SELECT "t"."value"
+          FROM json_each(@__tripIds_0) AS "t"
+      )
+      ORDER BY "s"."TripId", "s"."SeatNumber"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__model_TripId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      WHERE "t"."Id" = @__model_TripId_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__tripId_0='?' (DbType = Int32), @__selectedSeats_1='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."ReservationId", "s"."SeatNumber", "s"."Status", "s"."TicketId", "s"."TripId"
+      FROM "Seats" AS "s"
+      WHERE "s"."TripId" = @__tripId_0 AND "s"."Status" = 1 AND "s"."SeatNumber" IN (
+          SELECT "s0"."value"
+          FROM json_each(@__selectedSeats_1) AS "s0"
+      )
+      ORDER BY "s"."SeatNumber"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE Trips SET AvailableSeats = AvailableSeats - @p0, OccupiedSeats = OccupiedSeats + @p0 WHERE Id = @p1 AND AvailableSeats >= @p0 AND Status = @p2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__email_0='?' (Size = 17), @__phoneNumber_1='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."CreatedAt", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber"
+      FROM "Customers" AS "c"
+      WHERE "c"."Email" = @__email_0 OR "c"."PhoneNumber" = @__phoneNumber_1
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?', @p3='?' (DbType = Boolean), @p4='?' (DbType = DateTime), @p5='?' (Size = 28), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Decimal), @p10='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Reservations" ("CreatedAt", "CustomerId", "EmailErrorMessage", "EmailSent", "EmailSentAt", "Notes", "PaymentMethod", "SeatCount", "Status", "TotalAmount", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Decimal), @p1='?', @p2='?' (DbType = DateTime), @p3='?', @p4='?' (DbType = Int32), @p5='?' (Size = 20), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Payments" ("Amount", "CardHolderName", "CreatedAt", "MaskedCardNumber", "PaymentMethod", "ReferenceCode", "ReservationId", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Seats" SET "ReservationId" = @p0, "Status" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Seats" SET "ReservationId" = @p0, "Status" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Seats" SET "ReservationId" = @p0, "Status" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Seats" SET "ReservationId" = @p0, "Status" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+warn: Microsoft.EntityFrameworkCore.Query[20504]
+      Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__reservationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."CreatedAt", "s"."CustomerId", "s"."EmailErrorMessage", "s"."EmailSent", "s"."EmailSentAt", "s"."Notes", "s"."PaymentMethod", "s"."SeatCount", "s"."Status", "s"."TotalAmount", "s"."TripId", "s"."Id0", "s"."CreatedAt0", "s"."Email", "s"."FirstName", "s"."LastName", "s"."PhoneNumber", "s"."Id1", "s"."AvailableSeats", "s"."Country", "s"."DepartureCity", "s"."DepartureDate", "s"."DepartureTime", "s"."Description", "s"."Destination", "s"."OccupiedSeats", "s"."Price", "s"."ReturnDate", "s"."ReturnTime", "s"."Status0", "s"."TotalSeats", "s"."TransportType", "t0"."Id", "t0"."IssuedAt", "t0"."PassengerName", "t0"."ReservationId", "t0"."TicketNumber", "p"."Id", "p"."Amount", "p"."CardHolderName", "p"."CreatedAt", "p"."MaskedCardNumber", "p"."PaymentMethod", "p"."ReferenceCode", "p"."ReservationId", "p"."Status"
+      FROM (
+          SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId", "c"."Id" AS "Id0", "c"."CreatedAt" AS "CreatedAt0", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id" AS "Id1", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status" AS "Status0", "t"."TotalSeats", "t"."TransportType"
+          FROM "Reservations" AS "r"
+          INNER JOIN "Customers" AS "c" ON "r"."CustomerId" = "c"."Id"
+          INNER JOIN "Trips" AS "t" ON "r"."TripId" = "t"."Id"
+          WHERE "r"."Id" = @__reservationId_0
+          LIMIT 1
+      ) AS "s"
+      LEFT JOIN "Tickets" AS "t0" ON "s"."Id" = "t0"."ReservationId"
+      LEFT JOIN "Payments" AS "p" ON "s"."Id" = "p"."ReservationId"
+      ORDER BY "s"."Id", "s"."Id0", "s"."Id1", "t0"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__reservation_Id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."SeatNumber"
+      FROM "Seats" AS "s"
+      WHERE "s"."ReservationId" = @__reservation_Id_0
+      ORDER BY "s"."SeatNumber"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 3923), @p1='?' (DbType = DateTime), @p2='?', @p3='?' (Size = 17), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (Size = 7), @p7='?' (Size = 27), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "EmailLogs" ("Body", "CreatedAt", "ErrorMessage", "RecipientEmail", "ReservationId", "SentAt", "Status", "Subject", "TicketId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      UPDATE "EmailLogs" SET "SentAt" = @p0, "Status" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__reservationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId"
+      FROM "Reservations" AS "r"
+      WHERE "r"."Id" = @__reservationId_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p1='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Reservations" SET "EmailSent" = @p0, "EmailSentAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+warn: Microsoft.EntityFrameworkCore.Query[20504]
+      Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."CreatedAt", "s"."CustomerId", "s"."EmailErrorMessage", "s"."EmailSent", "s"."EmailSentAt", "s"."Notes", "s"."PaymentMethod", "s"."SeatCount", "s"."Status", "s"."TotalAmount", "s"."TripId", "s"."Id0", "s"."CreatedAt0", "s"."Email", "s"."FirstName", "s"."LastName", "s"."PhoneNumber", "s"."Id1", "s"."AvailableSeats", "s"."Country", "s"."DepartureCity", "s"."DepartureDate", "s"."DepartureTime", "s"."Description", "s"."Destination", "s"."OccupiedSeats", "s"."Price", "s"."ReturnDate", "s"."ReturnTime", "s"."Status0", "s"."TotalSeats", "s"."TransportType", "t0"."Id", "t0"."IssuedAt", "t0"."PassengerName", "t0"."ReservationId", "t0"."TicketNumber", "p"."Id", "p"."Amount", "p"."CardHolderName", "p"."CreatedAt", "p"."MaskedCardNumber", "p"."PaymentMethod", "p"."ReferenceCode", "p"."ReservationId", "p"."Status"
+      FROM (
+          SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId", "c"."Id" AS "Id0", "c"."CreatedAt" AS "CreatedAt0", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id" AS "Id1", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status" AS "Status0", "t"."TotalSeats", "t"."TransportType"
+          FROM "Reservations" AS "r"
+          INNER JOIN "Customers" AS "c" ON "r"."CustomerId" = "c"."Id"
+          INNER JOIN "Trips" AS "t" ON "r"."TripId" = "t"."Id"
+          WHERE "r"."Id" = @__id_0
+          LIMIT 1
+      ) AS "s"
+      LEFT JOIN "Tickets" AS "t0" ON "s"."Id" = "t0"."ReservationId"
+      LEFT JOIN "Payments" AS "p" ON "s"."Id" = "p"."ReservationId"
+      ORDER BY "s"."Id", "s"."Id0", "s"."Id1", "t0"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Reservations" AS "r"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Tickets" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("p"."Amount"), '0.0')
+      FROM "Payments" AS "p"
+      WHERE "p"."Status" = 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "r0"."Id", "r0"."CreatedAt", "r0"."CustomerId", "r0"."EmailErrorMessage", "r0"."EmailSent", "r0"."EmailSentAt", "r0"."Notes", "r0"."PaymentMethod", "r0"."SeatCount", "r0"."Status", "r0"."TotalAmount", "r0"."TripId", "c"."Id", "c"."CreatedAt", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM (
+          SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId"
+          FROM "Reservations" AS "r"
+          ORDER BY "r"."CreatedAt" DESC
+          LIMIT @__p_0
+      ) AS "r0"
+      INNER JOIN "Customers" AS "c" ON "r0"."CustomerId" = "c"."Id"
+      INNER JOIN "Trips" AS "t" ON "r0"."TripId" = "t"."Id"
+      ORDER BY "r0"."CreatedAt" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      WHERE "t"."AvailableSeats" <= 10 AND "t"."Status" = 1
+      ORDER BY "t"."AvailableSeats"
+      LIMIT @__p_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Reservations" AS "r"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Tickets" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("p"."Amount"), '0.0')
+      FROM "Payments" AS "p"
+      WHERE "p"."Status" = 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "r0"."Id", "r0"."CreatedAt", "r0"."CustomerId", "r0"."EmailErrorMessage", "r0"."EmailSent", "r0"."EmailSentAt", "r0"."Notes", "r0"."PaymentMethod", "r0"."SeatCount", "r0"."Status", "r0"."TotalAmount", "r0"."TripId", "c"."Id", "c"."CreatedAt", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM (
+          SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId"
+          FROM "Reservations" AS "r"
+          ORDER BY "r"."CreatedAt" DESC
+          LIMIT @__p_0
+      ) AS "r0"
+      INNER JOIN "Customers" AS "c" ON "r0"."CustomerId" = "c"."Id"
+      INNER JOIN "Trips" AS "t" ON "r0"."TripId" = "t"."Id"
+      ORDER BY "r0"."CreatedAt" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      WHERE "t"."AvailableSeats" <= 10 AND "t"."Status" = 1
+      ORDER BY "t"."AvailableSeats"
+      LIMIT @__p_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId", "c"."Id", "c"."CreatedAt", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType", "p"."Id", "p"."Amount", "p"."CardHolderName", "p"."CreatedAt", "p"."MaskedCardNumber", "p"."PaymentMethod", "p"."ReferenceCode", "p"."ReservationId", "p"."Status"
+      FROM "Reservations" AS "r"
+      INNER JOIN "Customers" AS "c" ON "r"."CustomerId" = "c"."Id"
+      INNER JOIN "Trips" AS "t" ON "r"."TripId" = "t"."Id"
+      LEFT JOIN "Payments" AS "p" ON "r"."Id" = "p"."ReservationId"
+      ORDER BY "r"."CreatedAt" DESC, "r"."Id", "c"."Id", "t"."Id"
+warn: Microsoft.EntityFrameworkCore.Query[20504]
+      Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__reservationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."CreatedAt", "s"."CustomerId", "s"."EmailErrorMessage", "s"."EmailSent", "s"."EmailSentAt", "s"."Notes", "s"."PaymentMethod", "s"."SeatCount", "s"."Status", "s"."TotalAmount", "s"."TripId", "s"."Id0", "s"."CreatedAt0", "s"."Email", "s"."FirstName", "s"."LastName", "s"."PhoneNumber", "s"."Id1", "s"."AvailableSeats", "s"."Country", "s"."DepartureCity", "s"."DepartureDate", "s"."DepartureTime", "s"."Description", "s"."Destination", "s"."OccupiedSeats", "s"."Price", "s"."ReturnDate", "s"."ReturnTime", "s"."Status0", "s"."TotalSeats", "s"."TransportType", "p"."Id", "p"."Amount", "p"."CardHolderName", "p"."CreatedAt", "p"."MaskedCardNumber", "p"."PaymentMethod", "p"."ReferenceCode", "p"."ReservationId", "p"."Status", "t0"."Id", "t0"."IssuedAt", "t0"."PassengerName", "t0"."ReservationId", "t0"."TicketNumber"
+      FROM (
+          SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId", "c"."Id" AS "Id0", "c"."CreatedAt" AS "CreatedAt0", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id" AS "Id1", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status" AS "Status0", "t"."TotalSeats", "t"."TransportType"
+          FROM "Reservations" AS "r"
+          INNER JOIN "Customers" AS "c" ON "r"."CustomerId" = "c"."Id"
+          INNER JOIN "Trips" AS "t" ON "r"."TripId" = "t"."Id"
+          WHERE "r"."Id" = @__reservationId_0
+          LIMIT 1
+      ) AS "s"
+      LEFT JOIN "Payments" AS "p" ON "s"."Id" = "p"."ReservationId"
+      LEFT JOIN "Tickets" AS "t0" ON "s"."Id" = "t0"."ReservationId"
+      ORDER BY "s"."Id", "s"."Id0", "s"."Id1", "p"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__reservationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."ReservationId", "s"."SeatNumber", "s"."Status", "s"."TicketId", "s"."TripId"
+      FROM "Seats" AS "s"
+      WHERE "s"."ReservationId" = @__reservationId_0 AND "s"."Status" = 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Payments" SET "Status" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Reservations" SET "Status" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 16), @p2='?' (DbType = Int32), @p3='?' (Size = 21)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Tickets" ("IssuedAt", "PassengerName", "ReservationId", "TicketNumber")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Seats" SET "Status" = @p0, "TicketId" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Seats" SET "Status" = @p0, "TicketId" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Seats" SET "Status" = @p0, "TicketId" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Seats" SET "Status" = @p0, "TicketId" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__reservationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."Id", "s"."CreatedAt", "s"."CustomerId", "s"."EmailErrorMessage", "s"."EmailSent", "s"."EmailSentAt", "s"."Notes", "s"."PaymentMethod", "s"."SeatCount", "s"."Status", "s"."TotalAmount", "s"."TripId", "s"."Id0", "s"."CreatedAt0", "s"."Email", "s"."FirstName", "s"."LastName", "s"."PhoneNumber", "s"."Id1", "s"."AvailableSeats", "s"."Country", "s"."DepartureCity", "s"."DepartureDate", "s"."DepartureTime", "s"."Description", "s"."Destination", "s"."OccupiedSeats", "s"."Price", "s"."ReturnDate", "s"."ReturnTime", "s"."Status0", "s"."TotalSeats", "s"."TransportType", "t0"."Id", "t0"."IssuedAt", "t0"."PassengerName", "t0"."ReservationId", "t0"."TicketNumber", "p"."Id", "p"."Amount", "p"."CardHolderName", "p"."CreatedAt", "p"."MaskedCardNumber", "p"."PaymentMethod", "p"."ReferenceCode", "p"."ReservationId", "p"."Status"
+      FROM (
+          SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId", "c"."Id" AS "Id0", "c"."CreatedAt" AS "CreatedAt0", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id" AS "Id1", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status" AS "Status0", "t"."TotalSeats", "t"."TransportType"
+          FROM "Reservations" AS "r"
+          INNER JOIN "Customers" AS "c" ON "r"."CustomerId" = "c"."Id"
+          INNER JOIN "Trips" AS "t" ON "r"."TripId" = "t"."Id"
+          WHERE "r"."Id" = @__reservationId_0
+          LIMIT 1
+      ) AS "s"
+      LEFT JOIN "Tickets" AS "t0" ON "s"."Id" = "t0"."ReservationId"
+      LEFT JOIN "Payments" AS "p" ON "s"."Id" = "p"."ReservationId"
+      ORDER BY "s"."Id", "s"."Id0", "s"."Id1", "t0"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__reservation_Id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."SeatNumber"
+      FROM "Seats" AS "s"
+      WHERE "s"."ReservationId" = @__reservation_Id_0
+      ORDER BY "s"."SeatNumber"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 3934), @p1='?' (DbType = DateTime), @p2='?', @p3='?' (Size = 17), @p4='?' (DbType = Int32), @p5='?' (DbType = DateTime), @p6='?' (Size = 7), @p7='?' (Size = 43), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "EmailLogs" ("Body", "CreatedAt", "ErrorMessage", "RecipientEmail", "ReservationId", "SentAt", "Status", "Subject", "TicketId")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 4)], CommandType='Text', CommandTimeout='30']
+      UPDATE "EmailLogs" SET "SentAt" = @p0, "Status" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__reservationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId"
+      FROM "Reservations" AS "r"
+      WHERE "r"."Id" = @__reservationId_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Reservations" SET "EmailSentAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId", "c"."Id", "c"."CreatedAt", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType", "p"."Id", "p"."Amount", "p"."CardHolderName", "p"."CreatedAt", "p"."MaskedCardNumber", "p"."PaymentMethod", "p"."ReferenceCode", "p"."ReservationId", "p"."Status"
+      FROM "Reservations" AS "r"
+      INNER JOIN "Customers" AS "c" ON "r"."CustomerId" = "c"."Id"
+      INNER JOIN "Trips" AS "t" ON "r"."TripId" = "t"."Id"
+      LEFT JOIN "Payments" AS "p" ON "r"."Id" = "p"."ReservationId"
+      ORDER BY "r"."CreatedAt" DESC, "r"."Id", "c"."Id", "t"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Seats" ("ReservationId", "SeatNumber", "Status", "TicketId", "TripId")
+      VALUES (@p0, @p1, @p2, @p3, @p4)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      ORDER BY "t"."Id" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Reservations" AS "r"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Tickets" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("p"."Amount"), '0.0')
+      FROM "Payments" AS "p"
+      WHERE "p"."Status" = 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "r0"."Id", "r0"."CreatedAt", "r0"."CustomerId", "r0"."EmailErrorMessage", "r0"."EmailSent", "r0"."EmailSentAt", "r0"."Notes", "r0"."PaymentMethod", "r0"."SeatCount", "r0"."Status", "r0"."TotalAmount", "r0"."TripId", "c"."Id", "c"."CreatedAt", "c"."Email", "c"."FirstName", "c"."LastName", "c"."PhoneNumber", "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM (
+          SELECT "r"."Id", "r"."CreatedAt", "r"."CustomerId", "r"."EmailErrorMessage", "r"."EmailSent", "r"."EmailSentAt", "r"."Notes", "r"."PaymentMethod", "r"."SeatCount", "r"."Status", "r"."TotalAmount", "r"."TripId"
+          FROM "Reservations" AS "r"
+          ORDER BY "r"."CreatedAt" DESC
+          LIMIT @__p_0
+      ) AS "r0"
+      INNER JOIN "Customers" AS "c" ON "r0"."CustomerId" = "c"."Id"
+      INNER JOIN "Trips" AS "t" ON "r0"."TripId" = "t"."Id"
+      ORDER BY "r0"."CreatedAt" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      WHERE "t"."AvailableSeats" <= 10 AND "t"."Status" = 1
+      ORDER BY "t"."AvailableSeats"
+      LIMIT @__p_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      ORDER BY "t"."Id" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      ORDER BY "t"."Id" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__transportType_Value_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      WHERE "t"."TransportType" = @__transportType_Value_0
+      ORDER BY "t"."Id" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "s"."TripId", "s"."SeatNumber"
+      FROM "Seats" AS "s"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Trips" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Reservations" AS "r"
+      WHERE "r"."Status" <> 3
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Tickets" AS "t"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("p"."Amount"), '0.0')
+      FROM "Payments" AS "p"
+      WHERE "p"."Status" = 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "t"."Id", "t"."AvailableSeats", "t"."Country", "t"."DepartureCity", "t"."DepartureDate", "t"."DepartureTime", "t"."Description", "t"."Destination", "t"."OccupiedSeats", "t"."Price", "t"."ReturnDate", "t"."ReturnTime", "t"."Status", "t"."TotalSeats", "t"."TransportType"
+      FROM "Trips" AS "t"
+      ORDER BY "t"."Id" DESC
+      LIMIT @__p_0
